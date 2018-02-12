@@ -10,7 +10,7 @@ int root = 0,maxium,len;
 void dfs(int p)
 {
 	maxium = maxium>p? maxium:p;
-	tree[p] = s[root];                        //纰板埌鎵�鏈夊皬鍐欏瓧姣嶅氨寤虹粨鐐癸紝鐩磋嚦璁块棶鍒版渶娣辩殑鐐瑰ぇ鍐欏瓧姣嶏紱 
+	tree[p] = s[root];                        //碰到所有小写字母就建结点，直至访问到最深的点大写字母； 
 	if(s[root]<91)
 	{
 		return;
