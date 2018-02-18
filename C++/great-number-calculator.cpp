@@ -3,9 +3,9 @@
 #include <algorithm>
 
 using namespace std;
-//å»ºç«‹é“¾è¡¨æ¥å‚¨å­˜è®¡ç®—æ•°æ® 
+//½¨Á¢Á´±íÀ´´¢´æ¼ÆËãÊı¾İ 
 
-int PointMove,Len;				//å®šä¹‰å…¨å±€å˜é‡è®°å½•å°æ•°ç‚¹ä¿¡æ¯å’Œæ•°æ®é•¿åº¦ 
+int PointMove,Len;				//¶¨ÒåÈ«¾Ö±äÁ¿¼ÇÂ¼Ğ¡ÊıµãĞÅÏ¢ºÍÊı¾İ³¤¶È 
 
 struct Num
 {	
@@ -25,7 +25,7 @@ int main ()
 {	
 	while(1)
 	{	
-		cout<<"å¤§æ•°è®¡ç®—å™¨ï¼ˆä»…å«åŠ å‡ï¼‰"<<endl; 
+		cout<<"´óÊı¼ÆËãÆ÷£¨½öº¬¼Ó¼õ£©"<<endl; 
 		GetNum();
 	}
 	return 0;
@@ -35,11 +35,11 @@ void GetNum()
 	string num1,num2;
 	Num *number1,*number2;
 	char c; 
-	cout<<"è¯·è¾“å…¥è®¡ç®—ä¿¡æ¯(å¹¶ä¸”æ­£ç¡®è¾“å…¥)\nç¬¬ä¸€ä¸ªæ•°ï¼š";
+	cout<<"ÇëÊäÈë¼ÆËãĞÅÏ¢(²¢ÇÒÕıÈ·ÊäÈë)\nµÚÒ»¸öÊı£º";
 	cin>>num1;
-	cout<<"è¯·è¾“å…¥è®¡ç®—ç¬¦å·:";
+	cout<<"ÇëÊäÈë¼ÆËã·ûºÅ:";
 	cin>>c;
-	cout<<"ç¬¬äºŒä¸ªæ•°ï¼š";
+	cout<<"µÚ¶ş¸öÊı£º";
 	cin>>num2;
 	Deal(num1,num2,c);
 	Simplify(num1,num2);
@@ -49,16 +49,16 @@ void GetNum()
 	
 		 
 }
-void Simplify(string &str1,string &str2)    //ç”¨æ­¤å‡½æ•°åŒ–ç®€è®¡ç®—ä¿¡æ¯ï¼ŒåŒ…æ‹¬é™¤å»é€—å·ï¼Œç¡®å®šå°æ•°ä½å¹¶è¡¥0ä½¿å…¶å½¢å¼ç›¸åŒ 
+void Simplify(string &str1,string &str2)    //ÓÃ´Ëº¯Êı»¯¼ò¼ÆËãĞÅÏ¢£¬°üÀ¨³ıÈ¥¶ººÅ£¬È·¶¨Ğ¡ÊıÎ»²¢²¹0Ê¹ÆäĞÎÊ½ÏàÍ¬ 
 {	
 	str1.erase(remove(str1.begin(), str1.end(), ','), str1.end());
-	str2.erase(remove(str2.begin(), str2.end(), ','), str2.end());      //ç¬¬ä¸€æ­¥ï¼šç§»é™¤é€—å· 
+	str2.erase(remove(str2.begin(), str2.end(), ','), str2.end());      //µÚÒ»²½£ºÒÆ³ı¶ººÅ 
 	
 	int point1,point2;
-	if (string::npos == str1.find('.')) point1 = 0;     //string::nposåˆ¤æ–­å­—ç¬¦ä¸²ä¸­çš„â€˜.â€™ä¸å­˜åœ¨ 
+	if (string::npos == str1.find('.')) point1 = 0;     //string::nposÅĞ¶Ï×Ö·û´®ÖĞµÄ¡®.¡¯²»´æÔÚ 
 		else {
 			point1 = str1.length() - str1.find('.') - 1;
-			str1 = str1.replace(str1.find('.'), 1, "");     //ç§»é™¤å­—ç¬¦ä¸²ä¸­çš„å°æ•°ç‚¹ 
+			str1 = str1.replace(str1.find('.'), 1, "");     //ÒÆ³ı×Ö·û´®ÖĞµÄĞ¡Êıµã 
 		}
 
 	if (string::npos == str2.find('.')) point2 = 0;
@@ -74,7 +74,7 @@ void Simplify(string &str1,string &str2)    //ç”¨æ­¤å‡½æ•°åŒ–ç®€è®¡ç®—ä¿¡æ¯ï¼Œå
 			str1.append(point2 - point1, '0');            
 			PointMove = point2;
 		}
-		if (point1 == point2) {                          //ç¡®å®šå°æ•°ç‚¹ä½æ•°ï¼Œå¹¶å°†å°æ•°ä½æ•°è¡¥è‡³ç›¸åŒ 
+		if (point1 == point2) {                          //È·¶¨Ğ¡ÊıµãÎ»Êı£¬²¢½«Ğ¡ÊıÎ»Êı²¹ÖÁÏàÍ¬ 
 			PointMove = point1;
 		}
 	int Len1 = str1.length(),Len2 = str2.length();
@@ -90,10 +90,10 @@ void Simplify(string &str1,string &str2)    //ç”¨æ­¤å‡½æ•°åŒ–ç®€è®¡ç®—ä¿¡æ¯ï¼Œå
 		s.assign(Len-Len1,'0');
 		str1.insert(0,s);
 	}
-	if (Len1 == Len2) Len = Len1;						//ç¡®å®šæ•°æ®é•¿åº¦ç›¸åŒ 
+	if (Len1 == Len2) Len = Len1;						//È·¶¨Êı¾İ³¤¶ÈÏàÍ¬ 
 }
 
-void Deal(string &s1,string &s2,char &f)                //å¯¹è¾“å…¥çš„ç¬¦å·è¿›è¡Œå¤„ç† ï¼Œä½¿åŠ å‡è®¡ç®—ä¸è´Ÿæ•°ä¹‹é—´æœ‰ç»Ÿä¸€å½¢å¼ 
+void Deal(string &s1,string &s2,char &f)                //¶ÔÊäÈëµÄ·ûºÅ½øĞĞ´¦Àí £¬Ê¹¼Ó¼õ¼ÆËãÓë¸ºÊıÖ®¼äÓĞÍ³Ò»ĞÎÊ½ 
 {	
 	if(s1[0] != '-'&&s2[0] == '-'&&f == '-')
 	{	
@@ -137,7 +137,7 @@ void Deal(string &s1,string &s2,char &f)                //å¯¹è¾“å…¥çš„ç¬¦å·è¿›è
 }
 void BuildList(string &str,Num *&number)
 {	
-	int L = Len-1;                                    //å°†æ•°æ®åå‘è¾“å…¥é“¾è¡¨ 
+	int L = Len-1;                                    //½«Êı¾İ·´ÏòÊäÈëÁ´±í 
 	Num *s,*p;
 	number = NULL;
 	s = new Num;
@@ -185,7 +185,7 @@ void Operate(Num *&number1,Num *&number2,char c,string str1,string str2)
 				a[i] = number1->n - number2->n;
 				number1 = number1->next;
 				number2 = number2->next;
-				if(i == Len-1)                            //å½“è¿ç®—åˆ°æœ€åä¸€ä½æ—¶ï¼Œå³æ•°æ®çš„æœ€å¤§ä½æ—¶ï¼Œä¸ç”¨å†è€ƒè™‘è¿›ä½ 
+				if(i == Len-1)                            //µ±ÔËËãµ½×îºóÒ»Î»Ê±£¬¼´Êı¾İµÄ×î´óÎ»Ê±£¬²»ÓÃÔÙ¿¼ÂÇ½øÎ» 
 				{	
 					++ i;
 					continue;                        
@@ -232,12 +232,12 @@ void Operate(Num *&number1,Num *&number2,char c,string str1,string str2)
 }
 void OutPut(int a[],int i)
 {	
-	while(a[i] == 0&&i>PointMove)                               //ç§»é™¤æ•°æ®å‰é¢å¤šä½™çš„0ï¼ˆåœ¨ä¸ªä½ä¹‹å‰çš„å¤šä½™çš„0ï¼‰ 
+	while(a[i] == 0&&i>PointMove)                               //ÒÆ³ıÊı¾İÇ°Ãæ¶àÓàµÄ0£¨ÔÚ¸öÎ»Ö®Ç°µÄ¶àÓàµÄ0£© 
 	{	
 		--i;
 	}
 	int k = i - PointMove,m = 0;
-	while(a[m] == 0&&m<PointMove)                  //ç§»é™¤åé¢å¤šä½™çš„0ï¼ˆåŒæ ·åœ¨å„ä½ä¹‹åçš„0ï¼‰ 
+	while(a[m] == 0&&m<PointMove)                  //ÒÆ³ıºóÃæ¶àÓàµÄ0£¨Í¬ÑùÔÚ¸÷Î»Ö®ºóµÄ0£© 
 	{	
 		++m;
 	}

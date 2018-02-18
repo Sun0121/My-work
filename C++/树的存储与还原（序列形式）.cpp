@@ -32,7 +32,7 @@ int getFather()
 }
 
 void getTree()
-{                     //pos闅忕潃鎸囧埌tree褰撳墠浣嶇疆
+{                     //pos随着指到tree当前位置
 	tree[pos].value = str[fence++];
 	tree[pos].parent = -1;
 	temp_father = pos++;

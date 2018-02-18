@@ -133,7 +133,7 @@ void getValue()
 		}
 		if(root_number == 1)
 		{
-			if(index1 == -1)              //index1娌¤淇敼锛屾墍浠ユ槸鍙跺瓙
+			if(index1 == -1)              //index1没被修改，所以是叶子
 			{
 				value[temp - 1] = min1;
 				father[temp-1] = temp;
@@ -166,15 +166,15 @@ void getTree(int pos,int point)
 	{
 		if(father[i] == point)
 		{
-			point = i;                   //璁板綍涓嬬埗浜茬殑浣嶇疆 
+			point = i;                   //记录下父亲的位置 
 			father[i] = -1;
 			switch1 = 1;
 			break;
 		}
 	}
-	if(switch1 == 0) return;                //褰撹鑺傜偣娌℃湁鍎垮瓙鏃惰繑鍥炰笂涓�绾э紱 
+	if(switch1 == 0) return;                //当该节点没有儿子时返回上一级； 
 	haffTree[pos] = value[point];
-	getTree(2*pos + 1,point);                    //鏋勫缓宸﹀瓙鏍戯紱 
+	getTree(2*pos + 1,point);                    //构建左子树； 
 	getTree(2*pos + 2,point);
 }
 
@@ -185,7 +185,7 @@ int main()
 	length = 2*n-1;
 	for(int i = 0;i<n;++ i)
 		cin>>number[i];
-	minHeap.getMessage(number,n);                            //鑾峰彇number鐨勫湴鍧�鍊煎強鏁扮粍闀垮害 
+	minHeap.getMessage(number,n);                            //获取number的地址值及数组长度 
 	getValue();
 	for(int i = 0;i<length;++ i)
 		cout<<value[i]<<"   "<<father[i]<<endl;

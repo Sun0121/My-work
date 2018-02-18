@@ -27,8 +27,8 @@ class T_Counter
 			return b;
 		}	
 		T_Counter & operator=(T_Counter &a) { n = a.n;return *this;}
-		template<typename T>                                          //æ­¤ä¸¤ä¸ªå‡½æ•°æ˜¯å‹å…ƒå‡½æ•°ï¼Œä¸å±äºç±»ä¸­ã€‚
-		friend ostream & operator<<(ostream &Output, T_Counter<T> &A);   //æ‰€ä»¥è¦ç”¨template<typename T>å£°æ˜ã€‚
+		template<typename T>                                          //´ËÁ½¸öº¯ÊıÊÇÓÑÔªº¯Êı£¬²»ÊôÓÚÀàÖĞ¡£
+		friend ostream & operator<<(ostream &Output, T_Counter<T> &A);   //ËùÒÔÒªÓÃtemplate<typename T>ÉùÃ÷¡£
 		template<typename T>
 		friend istream & operator>>(istream &Input ,T_Counter<T> &A);
 };
