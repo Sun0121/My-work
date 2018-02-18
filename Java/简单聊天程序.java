@@ -1,6 +1,6 @@
 
 
-å®¢æˆ·ç«¯
+¿Í»§¶Ë
 
 package ChatClient;
 
@@ -37,14 +37,14 @@ import javax.swing.JFrame;
 		}
 	
 		private void launch() {
-			this.setTitle("clientç«¯");
+			this.setTitle("client¶Ë");
 			this.setLocation(300, 400);
 			this.setSize(300, 400);
 			/*
-			 * å…³é—­çª—å£çš„ä¸¤ç§æ–¹æ³•
+			 * ¹Ø±Õ´°¿ÚµÄÁ½ÖÖ·½·¨
 			 * */
 			//this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-			this.addWindowListener(new WindowAdapter(){//ä¸ºäº†å…³é—­çª—å£
+			this.addWindowListener(new WindowAdapter(){//ÎªÁË¹Ø±Õ´°¿Ú
 			   public void windowClosing(WindowEvent e)
 			   {
 				   disconnect();
@@ -55,16 +55,16 @@ import javax.swing.JFrame;
 			tf=new TextField();
 			ta=new TextArea();
 			
-			//ä¸ºTextFieldæ·»åŠ å›è½¦äº‹ä»¶å“åº”
+			//ÎªTextFieldÌí¼Ó»Ø³µÊÂ¼şÏìÓ¦
 			tf.addActionListener(new ClientLisenter());
 			
 			this.add(BorderLayout.SOUTH,tf);
 			this.add(BorderLayout.NORTH, ta);
-			pack();//çª—å£è‡ªåŠ¨é€‚åº”å¤§å°ï¼Œä½¿çª—å£èƒ½æ­£å¥½æ˜¾ç¤ºé‡Œé¢æ‰€æœ‰çš„æ§ä»¶ã€‚
+			pack();//´°¿Ú×Ô¶¯ÊÊÓ¦´óĞ¡£¬Ê¹´°¿ÚÄÜÕıºÃÏÔÊ¾ÀïÃæËùÓĞµÄ¿Ø¼ş¡£
 			this.setVisible(true);
 			
 			connect();
-			//è¿æ¥ä¸Šäº†ä¹‹åï¼Œå¼€å¯ä¸€ä¸ªçº¿ç¨‹æ¥è¿›è¡Œæ¥æ”¶æœåŠ¡å™¨ç«¯çš„æ•°æ®
+			//Á¬½ÓÉÏÁËÖ®ºó£¬¿ªÆôÒ»¸öÏß³ÌÀ´½øĞĞ½ÓÊÕ·şÎñÆ÷¶ËµÄÊı¾İ
 			
 			new Thread(new RecvThread()).start();
 			
@@ -76,17 +76,17 @@ import javax.swing.JFrame;
 			public void run() {
 				while(b_conn){
 					String str = null;
-					//ä»æœåŠ¡å™¨ç«¯æ¥æ”¶æ•°æ®æœ‰ä¸ªæ—¶é—´é™åˆ¶ï¼ˆç³»ç»Ÿè‡ªè®¾ï¼Œä¹Ÿå¯ä»¥è‡ªå·±è®¾ç½®ï¼‰ï¼Œè¶…è¿‡äº†è¿™ä¸ªæ—¶é—´ï¼Œä¾¿ä¼šæŠ›å‡ºè¯¥å¼‚å¸¸  
+					//´Ó·şÎñÆ÷¶Ë½ÓÊÕÊı¾İÓĞ¸öÊ±¼äÏŞÖÆ£¨ÏµÍ³×ÔÉè£¬Ò²¿ÉÒÔ×Ô¼ºÉèÖÃ£©£¬³¬¹ıÁËÕâ¸öÊ±¼ä£¬±ã»áÅ×³ö¸ÃÒì³£  
 					try {
 						str = dis.readUTF();
-						//å°†ä¿¡æ¯å†™å…¥åˆ°TextAreaä¸­
+						//½«ĞÅÏ¢Ğ´Èëµ½TextAreaÖĞ
 						ta.setText(ta.getText()+str+'\n');
 					}catch(SocketException e1){
 						System.out.println("bye");
 					}catch (EOFException e) {
-						System.out.println("æ¨å‡ºäº†ï¼Œbye - bye!");
+						System.out.println("ÍÆ³öÁË£¬bye - bye!");
 					}catch (IOException e) {
-						System.out.println("æˆ‘å…³é—­äº†ä¹Ÿ");
+						System.out.println("ÎÒ¹Ø±ÕÁËÒ²");
 						e.printStackTrace();
 					}
 				}
@@ -95,7 +95,7 @@ import javax.swing.JFrame;
 		}
 		
 		private void connect() {
-			//å®¢æˆ·ç«¯è¯·æ±‚ä¸æœ¬æœºåœ¨8888ç«¯å£å»ºç«‹TCPè¿æ¥ 
+			//¿Í»§¶ËÇëÇóÓë±¾»úÔÚ8888¶Ë¿Ú½¨Á¢TCPÁ¬½Ó 
 			try {
 				client = new Socket("127.0.0.1", 8888);
 				//client.setSoTimeout(10000); 
@@ -103,7 +103,7 @@ import javax.swing.JFrame;
 				dis = new DataInputStream(this.client.getInputStream());
 				b_conn = true;
 			} catch (UnknownHostException e) {
-				System.out.println("æ²¡æœ‰æ‰¾åˆ°éœ€è¦è¿æ¥çš„ä¸»æœºï¼ï¼");
+				System.out.println("Ã»ÓĞÕÒµ½ĞèÒªÁ¬½ÓµÄÖ÷»ú£¡£¡");
 				e.printStackTrace();
 			} catch (IOException e) {
 				e.printStackTrace();
@@ -129,10 +129,10 @@ import javax.swing.JFrame;
 				public void actionPerformed(ActionEvent event) {
 					String content = tf.getText();
 					/*
-					 * åˆ¤æ–­TextAreaä¸­æ˜¯å¦æœ‰å†…å®¹,å¦‚æœæœ‰ï¼Œåˆ™éœ€è¦å…ˆåŠ å…¥ä¸€ä¸ªæ¢è¡Œç¬¦ï¼Œ
-					 * ç„¶åå†åŠ å…¥å†…å®¹ï¼Œå¦åˆ™ç›´æ¥åŠ å…¥å†…å®¹
+					 * ÅĞ¶ÏTextAreaÖĞÊÇ·ñÓĞÄÚÈİ,Èç¹ûÓĞ£¬ÔòĞèÒªÏÈ¼ÓÈëÒ»¸ö»»ĞĞ·û£¬
+					 * È»ºóÔÙ¼ÓÈëÄÚÈİ£¬·ñÔòÖ±½Ó¼ÓÈëÄÚÈİ
 					 * */
-					//ç”±äºæœåŠ¡å™¨ç«¯ä¼šå¹¿æ’­å…¶å‘é€çš„æ¶ˆæ¯ï¼Œå› æ­¤ï¼Œå°±ä¸éœ€è¦å†è¿™é‡Œå®Œæˆæ˜¾ç¤ºäº†
+					//ÓÉÓÚ·şÎñÆ÷¶Ë»á¹ã²¥Æä·¢ËÍµÄÏûÏ¢£¬Òò´Ë£¬¾Í²»ĞèÒªÔÙÕâÀïÍê³ÉÏÔÊ¾ÁË
 //					if(ta.getText().trim().length()!=0){
 //						ta.setText(ta.getText()+"\n"+content);
 //					}
@@ -163,7 +163,7 @@ import javax.swing.JFrame;
 	
 	
 	
-	æœåŠ¡å™¨ç«¯
+	·şÎñÆ÷¶Ë
 	
 package ChatServer;
 
@@ -180,7 +180,7 @@ import java.util.List;
 	
 		private ServerSocket server = null;
 		
-		//è®°å½•æ‰€æœ‰è¿æ¥ä¸Šæ­¤æœåŠ¡å™¨çš„å®¢æˆ·ç«¯
+		//¼ÇÂ¼ËùÓĞÁ¬½ÓÉÏ´Ë·şÎñÆ÷µÄ¿Í»§¶Ë
 		private List<ServerThread> serverThreads = new ArrayList<ServerThread>();
 		
 		public static void main(String[] args) {
@@ -190,25 +190,25 @@ import java.util.List;
 		private void start(){
 			boolean b_serverStart = false;
 			try {
-				//ç›‘å¬æœ¬åœ°åœ°å€ä¸”ç«¯å£å·ä¸º8888
+				//¼àÌı±¾µØµØÖ·ÇÒ¶Ë¿ÚºÅÎª8888
 				server = new ServerSocket(8888);
 				b_serverStart = true;
 			} catch (IOException e) {
-				//è§£å†³æ‰“å¼€å¤šä¸ªServerç«¯çš„æƒ…å†µ
-				System.out.println("è¯·å…³é—­å·²ç»æ‰“å¼€çš„Serverç«¯ï¼Œé‡æ–°å¼€å¯");
+				//½â¾ö´ò¿ª¶à¸öServer¶ËµÄÇé¿ö
+				System.out.println("Çë¹Ø±ÕÒÑ¾­´ò¿ªµÄServer¶Ë£¬ÖØĞÂ¿ªÆô");
 				System.exit(0);
 			}
 			
 			while(b_serverStart){
-				//ç­‰å¾…å®¢æˆ·ç«¯çš„è¿æ¥ï¼Œå¦‚æœæ²¡æœ‰è·å–è¿æ¥  
+				//µÈ´ı¿Í»§¶ËµÄÁ¬½Ó£¬Èç¹ûÃ»ÓĞ»ñÈ¡Á¬½Ó  
 	            Socket client = null;
 				try {
 					client = server.accept();
 				} catch (IOException e) {
 					e.printStackTrace();
 				}  
-	            System.out.println("ä¸å®¢æˆ·ç«¯è¿æ¥æˆåŠŸï¼");  
-	          //ä¸ºæ¯ä¸ªå®¢æˆ·ç«¯è¿æ¥å¼€å¯ä¸€ä¸ªçº¿ç¨‹  
+	            System.out.println("Óë¿Í»§¶ËÁ¬½Ó³É¹¦£¡");  
+	          //ÎªÃ¿¸ö¿Í»§¶ËÁ¬½Ó¿ªÆôÒ»¸öÏß³Ì  
 	            ServerThread st = new ServerThread(client);
 	            serverThreads.add(st);
 	            new Thread(st).start();  
@@ -243,7 +243,7 @@ import java.util.List;
 				
 				try{
 					while(b_connect){  
-		                //æ¥æ”¶ä»å®¢æˆ·ç«¯å‘é€è¿‡æ¥çš„æ•°æ®  
+		                //½ÓÊÕ´Ó¿Í»§¶Ë·¢ËÍ¹ıÀ´µÄÊı¾İ  
 		                String str= dis.readUTF();
 		                if(str == null || "".equals(str)){  
 		                	b_connect = false;  
@@ -251,9 +251,9 @@ import java.util.List;
 		                    if("bye".equals(str)){  
 		                    	b_connect = false;  
 		                    }else{  
-		                        //å°†æ¥æ”¶åˆ°çš„å­—ç¬¦ä¸²å‰é¢åŠ ä¸Šè¾“å‡ºåˆ°æ§åˆ¶å°
+		                        //½«½ÓÊÕµ½µÄ×Ö·û´®Ç°Ãæ¼ÓÉÏÊä³öµ½¿ØÖÆÌ¨
 		                        System.out.println(str);
-		                        //å°†Clientç«¯å‘é€è¿‡æ¥çš„æ•°æ®å¹¿æ’­å‡ºå»
+		                        //½«Client¶Ë·¢ËÍ¹ıÀ´µÄÊı¾İ¹ã²¥³öÈ¥
 		                        for(int i=0;i<serverThreads.size();i++){
 		                        	ServerThread st = serverThreads.get(i);
 		                        	st.send(str);
@@ -264,7 +264,7 @@ import java.util.List;
 		            }
 				}
 				catch(IOException e){
-					System.out.println("clientç«¯å…³é—­äº†");
+					System.out.println("client¶Ë¹Ø±ÕÁË");
 					//e.printStackTrace();
 				}
 				finally{
@@ -279,7 +279,7 @@ import java.util.List;
 				}
 			}
 			private void send(String str) {
-				//å¦‚æœå‘é€æ•°æ®å‘ç”Ÿå¼‚å¸¸ï¼Œåˆ™è¯´æ˜æ­¤è¿æ¥å·²ç»ä¸å†ï¼Œåˆ™éœ€è¦åœ¨Serverç«¯å°†æ­¤Clientç§»é™¤
+				//Èç¹û·¢ËÍÊı¾İ·¢ÉúÒì³££¬ÔòËµÃ÷´ËÁ¬½ÓÒÑ¾­²»ÔÙ£¬ÔòĞèÒªÔÚServer¶Ë½«´ËClientÒÆ³ı
 				try {
 					this.dos.writeUTF(str);
 				} catch (IOException e) {

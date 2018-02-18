@@ -1,5 +1,5 @@
 
-å®¢æˆ·ç«¯
+¿Í»§¶Ë
 
 package client
 import javax.swing.*;
@@ -30,7 +30,7 @@ class client extends JFrame implements ActionListener
     {
         try {
             Socket s = new Socket("127.0.0.1", 4242);
- //              System.out.println("è¾“å…¥ä¸Šä¼ æ–‡ä»¶è·¯å¾„");
+ //              System.out.println("ÊäÈëÉÏ´«ÎÄ¼şÂ·¾¶");
 //             Scanner sc = new Scanner(System.in);
 //            String adress = sc.next();
 
@@ -38,34 +38,34 @@ class client extends JFrame implements ActionListener
             //System.out.println(adress);
             File f = new File(""+adress);
 
-            //è¾“å‡ºæµ
+            //Êä³öÁ÷
             OutputStream out = s.getOutputStream();
-            //è·å–æ–‡ä»¶åï¼Œå‘é€æ–‡ä»¶å
+            //»ñÈ¡ÎÄ¼şÃû£¬·¢ËÍÎÄ¼şÃû
             String name = f.getName();
             out.write(name.getBytes());
             InputStream in = s.getInputStream();
-            //æ¥å—æœåŠ¡ç«¯åé¦ˆ
+            //½ÓÊÜ·şÎñ¶Ë·´À¡
             byte[] bt = new byte[1024];
             int le1 = in.read(bt);
             System.out.println(new String(bt,0,le1));
 
 
             FileInputStream is = new FileInputStream(f);
-            //è¯»å–æœ¬åœ°æ–‡ä»¶
+            //¶ÁÈ¡±¾µØÎÄ¼ş
             byte[] buf = new byte[1024];
             int len = 0;
             while ((len = is.read(buf)) != -1) {
-                out.write(buf, 0, len);         //æ–‡ä»¶æ•°æ®å†™å…¥è¾“å‡ºæµ é€šè¿‡ç½‘ç»œä¼ é€
+                out.write(buf, 0, len);         //ÎÄ¼şÊı¾İĞ´ÈëÊä³öÁ÷ Í¨¹ıÍøÂç´«ËÍ
             }
-            s.shutdownOutput();         //å‘Šè¯‰æœåŠ¡ç«¯ æ–‡ä»¶è¯»å–å®Œæ¯•
+            s.shutdownOutput();         //¸æËß·şÎñ¶Ë ÎÄ¼ş¶ÁÈ¡Íê±Ï
 
 
-            //æ¥æ”¶å®¢æˆ·ç«¯çš„åé¦ˆ
+            //½ÓÊÕ¿Í»§¶ËµÄ·´À¡
             byte[] bf = new byte[1024];
             int le = in.read(bf);
             System.out.println(new String(bf, 0, le));
 
-            //å…³é—­èµ„æº
+            //¹Ø±Õ×ÊÔ´
             s.close();
             is.close();
         } catch (Exception e) {
@@ -79,10 +79,10 @@ class client extends JFrame implements ActionListener
         jt = new JTextField();
         jt.setBounds(100,100,200,27);
 
-        sub = new JButton("ä¸Šä¼ ");
+        sub = new JButton("ÉÏ´«");
         sub.setBounds(200,200,100,27);
 
-        open=new JButton("æ‰“å¼€");
+        open=new JButton("´ò¿ª");
         open.setBounds(100,200,100,27);
 
         jp = new JPanel();
@@ -96,7 +96,7 @@ class client extends JFrame implements ActionListener
         this.setBounds(300, 300, 400, 400);
         this.setVisible(true);
         this.setLayout(null);
-        this.setTitle("æ·è‘­å˜‰ä½³è¿¦ä¸Šä¼ Demo");
+        this.setTitle("¼Ïİç¼Î¼ÑåÈÉÏ´«Demo");
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
         open.addActionListener(this);
@@ -105,16 +105,16 @@ class client extends JFrame implements ActionListener
     @Override
     public void actionPerformed(ActionEvent e) {
         // TODO Auto-generated method stub
-        if(e.getActionCommand()=="ä¸Šä¼ ")
+        if(e.getActionCommand()=="ÉÏ´«")
         {
             upload();
         }
 
-        if(e.getActionCommand()=="æ‰“å¼€") {
-            System.out.println("æ‰“å¼€");
+        if(e.getActionCommand()=="´ò¿ª") {
+            System.out.println("´ò¿ª");
             JFileChooser jfc = new JFileChooser();
             jfc.setFileSelectionMode(JFileChooser.FILES_AND_DIRECTORIES);
-            jfc.showDialog(new JLabel(),"é€‰æ‹©æ–‡ä»¶");
+            jfc.showDialog(new JLabel(),"Ñ¡ÔñÎÄ¼ş");
             File file = jfc.getSelectedFile();
             if (file.isFile()) {
                 String str = file.getAbsolutePath();
@@ -122,7 +122,7 @@ class client extends JFrame implements ActionListener
                 jt.setText(str);
 
             } else
-                System.out.println("é€‰æ‹©çš„å¹¶ä¸æ˜¯ä¸€ä¸ªæ–‡ä»¶");
+                System.out.println("Ñ¡ÔñµÄ²¢²»ÊÇÒ»¸öÎÄ¼ş");
             System.out.println(jfc.getSelectedFile().getName());
         }
 
@@ -131,7 +131,7 @@ class client extends JFrame implements ActionListener
 
 
 
-æœåŠ¡å™¨ç«¯
+·şÎñÆ÷¶Ë
 
 
 package cn.chlinjiayi.upload3;
@@ -153,21 +153,21 @@ class server implements Runnable {
     public void run() {
         try {
             InputStream in = s.getInputStream();
-            //å¤åˆ¶çš„æ–‡ä»¶å­˜æ”¾
+            //¸´ÖÆµÄÎÄ¼ş´æ·Å
             String IP = s.getInetAddress().getHostAddress();
-            System.out.println(IP + "ï¼Œï¼Œï¼Œè¿æ¥æˆåŠŸ");
+            System.out.println(IP + "£¬£¬£¬Á¬½Ó³É¹¦");
             String name = null;
 
             byte[] bf = new byte[1024];
             int le = in.read(bf);
             name = new String(bf, 0, le);
             OutputStream out = s.getOutputStream();
-            out.write("æ”¶åˆ°".getBytes());
+            out.write("ÊÕµ½".getBytes());
 
-            File f = new File("E://javaæœåŠ¡å™¨æµ‹è¯•", name );
-            //å°†æ•°æ®å†™å…¥åˆ°æ–‡ä»¶ä¸­
+            File f = new File("E://java·şÎñÆ÷²âÊÔ", name );
+            //½«Êı¾İĞ´Èëµ½ÎÄ¼şÖĞ
             FileOutputStream os = new FileOutputStream(f);
-            //è·å–æ•°æ®
+            //»ñÈ¡Êı¾İ
 
             byte[] buf = new byte[1024];
             int len = 0;
@@ -175,8 +175,8 @@ class server implements Runnable {
                 os.write(buf, 0, len);
             }
 
-            out.write((f.getName() + "ä¸Šä¼ å®Œæˆ").getBytes());
-            //å…³é—­èµ„æº
+            out.write((f.getName() + "ÉÏ´«Íê³É").getBytes());
+            //¹Ø±Õ×ÊÔ´
             os.close();
             s.close();
         } catch (Exception e) {
@@ -188,7 +188,7 @@ class server implements Runnable {
         try {
             ServerSocket ss = new ServerSocket(4242);
             while (true) {
-                Socket s = ss.accept();//é˜»å¡æ–¹æ³•
+                Socket s = ss.accept();//×èÈû·½·¨
                 new Thread(new cn.chlinjiayi.upload3.server(s)).start();
             }
         } catch (Exception e) {

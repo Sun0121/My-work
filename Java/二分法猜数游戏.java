@@ -22,24 +22,24 @@ public class HelloWorld{
 		{
 			int randomNum,i = 0,number = -1;
 			randomNum = (int)(Math.random()*100);
-			System.out.println("å·²è·å–éšæœºæ•°(1-100)ï¼Œè¯·å¼€å§‹çŒœæ•°ï¼š");
+			System.out.println("ÒÑ»ñÈ¡Ëæ»úÊı(1-100)£¬Çë¿ªÊ¼²ÂÊı£º");
 			while(number != randomNum)
 			{
-				System.out.print("è¯·è¾“å…¥ç¬¬"+(i+1)+"ä¸ªæ•°ï¼š");
+				System.out.print("ÇëÊäÈëµÚ"+(i+1)+"¸öÊı£º");
 				number = getInt();
 				if(number>randomNum)
 				{	
-					System.out.println("è¯¥æ•°å¤§äº†,");
+					System.out.println("¸ÃÊı´óÁË,");
 					++ i;
 				}
 				if(number<randomNum)
 				{
-					System.out.println("è¯¥æ•°å°äº†,");
+					System.out.println("¸ÃÊıĞ¡ÁË,");
 					++ i;
 				}
 			}
-			System.out.println("æ­å–œæ­£ç¡®ï¼Œä½ ä¸€å…±çŒœäº†"+(i+1)+"æ¬¡");
-			System.out.println("è¯·é€‰æ‹©ï¼š é‡æ–°å¼€å§‹ è¾“å…¥1ï¼› é€€å‡ºè¾“å…¥0");
+			System.out.println("¹§Ï²ÕıÈ·£¬ÄãÒ»¹²²ÂÁË"+(i+1)+"´Î");
+			System.out.println("ÇëÑ¡Ôñ£º ÖØĞÂ¿ªÊ¼ ÊäÈë1£» ÍË³öÊäÈë0");
 			i = getInt();
 			if(i == 0)
 				sympol = false;
